@@ -2,7 +2,10 @@
   "name": "studymate",
   "homepage": "https://github.com/ecdemis123/studymate",
   "authors": [
-    "Eleanor Demis <eleanordemis@gmail.com>"
+    "Eleanor Demis <eleanordemis@gmail.com>",
+    "Nas Wahab <>",
+    "Mark Kim <>",
+    "Hyungi Park <>"
   ],
   "description": "",
   "main": "",
