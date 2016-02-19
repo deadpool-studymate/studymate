@@ -1,4 +1,4 @@
-angular.module('studyMate')
+angular.module('eventsListFact', [])
 
 .factory('eventsListFact', function($http){
   var getEvents = function() {

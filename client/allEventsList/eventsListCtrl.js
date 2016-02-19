@@ -1,4 +1,4 @@
-angular.module('studyMate')
+angular.module('studyMate.eventsListCtrl', [])
 
 .controller('eventsListCtrl',function($scope, eventsListFact){
 
@@ -10,6 +10,8 @@ angular.module('studyMate')
       console.log(err);
     });
   };
+
+
   $scope.displayEvent();
 
 });

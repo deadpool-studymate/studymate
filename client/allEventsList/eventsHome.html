@@ -1,9 +1,11 @@
-<div class="createEvent" ng-controller="createEventCtrl">
+<div class="createEvent" ng-controller="eventsListCtrl">
   <form ng-submit="sendEvent()">
+    <!-- sendEvent() does not exist in Controller nor the Factory. What sendEvent should be doing is making a POST request that creates an event model, and should be routed appropriately -->
     <input type="text" ng-model="event.topic"></input>
     <input type="text" ng-model="event.place"></input>
     <input type="text" ng-model="event.date"></input>
     <input type="text" ng-model="event.time"></input>
+    <!-- event.topic, place, date, time do not exist -->
     <button>Add</button>
   </form>
 </div>
@@ -14,5 +16,6 @@
     <div class="place">{{event.place}}</div>
     <div class="date">{{event.date}}</div>
     <div class="time">{{event.time}}</div>
+    <!-- same as here -->
   </div>
 </div>

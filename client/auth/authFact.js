@@ -1,5 +1,5 @@
-angular.module('studyMate')
-.factory('AuthFact', function ($http, $location, $window) {
+angular.module('authFact')
+.factory('authFact', function ($http, $location, $window) {
 
   var signin = function (user) {
     return $http({

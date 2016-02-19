@@ -1,4 +1,4 @@
-angular.module('studyMate')
+angular.module('createEventFact')
 
 .factory('createEventFact', function($http){
   // Take information from the createventHome view and send to dB
