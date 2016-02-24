@@ -5,6 +5,20 @@
     <input type='text' id="inputName" class="form-control" placeholder="Username" ng-model='user.username' required autofocus="">
     <label for="password" class="sr-only">Password</label>
     <input type="password" id="password" class="form-control" placeholder="Password" ng-model='user.password' required>
+
+
+    <input class="form-control" type="text" ng-model="user.firstname" placeholder="First name" required autofocus></input>
+    <input class="form-control" type="text" ng-model="user.lastname" placeholder="Last name" required></input><br>
+    <input class="form-control" type="number" ng-model="user.phonenumber" placeholder="Phone number" required></input><br>
+    <input class="form-control" type="text" ng-model="user.email" placeholder="E-mail"></input><br>
+    <input type="radio" name="gender" ng-model="user.gender"> Male
+    <input type="radio" name="gender" ng-model="user.gender"> Female
+    <input type="radio" name="gender" ng-model="user.gender"> Other<br>
+    <input class="form-control dropdown" type="date" ng-model="user.birthday"></input><br>
+    <input class="form-control" type="text" ng-model="user.school" placeholder="School attending"><br>
+    <input class="form-control" type="text" ng-model="user.topic" placeholder="Subjects currently studying" required><br>
+
+
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
     <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
   </form>
