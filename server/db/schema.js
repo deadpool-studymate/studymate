@@ -19,6 +19,14 @@ db.knex.schema.hasTable('users')
       user.increments('id').primary();
       user.string('username', 100);
       user.string('password', 100);
+      user.string('firstname', 30);
+      user.string('lastname', 30);
+      user.number('phonenumber', 10);
+      user.string('email', 30);
+      user.string('gender', 6);
+      user.date('birthday', 10);
+      user.string('school', 6);
+      user.string('topic', 6);
     }).then(function(table) {
       console.log('Created Table', table);
     });

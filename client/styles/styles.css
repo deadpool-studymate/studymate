@@ -78,11 +78,6 @@ body {
 }
 
 
-h1 {
-  font-family: 'Norican', cursive;
-}
-
-
 #eventsList {
   float: left;
   padding: 10px;
@@ -93,8 +88,4 @@ h1 {
   float: right;
   padding-top: 70px;
   /*margin: 0 auto;*/
-}
-
-.content {
-  text-align: center;
 }

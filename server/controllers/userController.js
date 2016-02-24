@@ -35,9 +35,17 @@ module.exports = {
   signup: function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
-
+    var firstname = req.body.firstname;
+    var lastname = req.body.lastname;
+    var phonenumber = req.body.phonenumber;
+    var email = req.body.email;
+    var gender = req.body.gender;
+    var birthday = req.body.birthday;
+    var school = req.body.school;
+    var topic = req.body.topic;
     var validObj = {isValid: false};
 
+    debugger;
     new User({username: username}).fetch()
       .then(function(found) {
         if(found) {
@@ -47,7 +55,15 @@ module.exports = {
             bcrypt.hash(password, salt, null, function(err, hash) {
               var user = new User({
                 username: username,
-                password: hash
+                password: hash,
+                firstname: firstname,
+                lastname: lastname,
+                phonenumber: phonenumber,
+                email: email,
+                gender: gender,
+                birthday: birthday,
+                school: school,
+                topic: topic
               });
 
               var token = jwt.encode({username: username}, secret);
