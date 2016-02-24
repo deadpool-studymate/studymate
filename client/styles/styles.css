@@ -86,13 +86,13 @@ h1 {
 #eventsList {
   float: left;
   padding: 10px;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
 }
 
 #createEvent {
   float: right;
   padding-top: 70px;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
 }
 
 .content {
