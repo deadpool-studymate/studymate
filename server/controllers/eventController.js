@@ -52,7 +52,7 @@ module.exports = {
         res.send(collection);
       });
   },
-
+  
   eventJoin: function(req, res) {
     var token = req.body.token;
     var eventid = req.body.event.id;

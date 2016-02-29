@@ -4,6 +4,9 @@ body {
   background-color: #eee;
 }
 
+h4 {
+  font-family: arial;
+}
 
 .jumbotron {
   background-image: url('../');
@@ -77,12 +80,6 @@ body {
   border-top-right-radius: 0;
 }
 
-
-h1 {
-  font-family: 'Norican', cursive;
-}
-
-
 #eventsList {
   float: left;
   padding: 10px;
@@ -97,4 +94,12 @@ h1 {
 
 .content {
   text-align: center;
+}
+
+.instructions{
+  margin-top: 40px;
+}
+
+.arial {
+  font-family: arial;
 }

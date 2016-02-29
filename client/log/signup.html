@@ -1,11 +1,26 @@
-<div id='signup'>
-  <form name="signupForm" class="form-signin" ng-submit='signup()' ng-controller="logController">
-    <h2 class="form-signin-heading">Please Sign Up</h2>
-    <label for="inputName" class="sr-only">Name</label>
-    <input type='text' id="inputName" class="form-control" placeholder="Username" ng-model='user.username' required autofocus="">
-    <label for="password" class="sr-only">Password</label>
-    <input type="password" id="password" class="form-control" placeholder="Password" ng-model='user.password' required>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
-    <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
-  </form>
+<div class="container-fluid">
+  <div class="col-md-10 col-md-offset-3">
+    <div class="row-fluid">
+      <div id='signup' class="form-signin col-md-6 col-sm-12 col-xs-12">
+        <form name="signupForm" ng-submit='signup()' ng-controller="logController">
+          <h2 class="form-signin-heading">Please Sign Up</h2>
+          <label for="inputName" class="sr-only">Name</label>
+          <input type='text' id="inputName" class="form-control" placeholder="Username" ng-model='user.username' required autofocus="">
+          <label for="password" class="sr-only">Password</label>
+          <input type="password" id="password" class="form-control" placeholder="Password" ng-model='user.password' required>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+          <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <ol class="instructions">
+        <li>create a free account</li>
+        <li>join existing study events</li>
+        <li>make your own study events</li>
+        <li>profit</li>
+      </ol>
+    </div>
+  </div>
 </div>
