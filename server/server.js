@@ -1,7 +1,5 @@
 var express = require('express');
-
 var request = require('request');
-var _ = require('lodash');
 
 var app = express();
 

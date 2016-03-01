@@ -43,10 +43,10 @@
             <br>
             <span class="col-sm-2 text-left pull-left"><strong>Place:</strong></span>
             <span class="col-sm-4">{{event.place}}</span>
+            <button class="btn btn-success pull-right" ng-click="eventJoin(event)">Join</button>
             <br>
             <span class="col-sm-2 text-left pull-left"><strong>Date:</strong></span>
             <span class="col-sm-4">{{event.formatted}}</span>
-            <button class="btn btn-success pull-right" ng-click="eventJoin(event)">Join</button>
             <br>
             <div ng-init="getGuestList(event)"></div>
             <span class="col-sm-2 text-left pull-left"><strong>Attendees:</strong></span>
