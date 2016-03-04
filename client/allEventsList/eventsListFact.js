@@ -13,10 +13,10 @@ angular.module('studyMate')
     });
   };
 
-  var eventJoin = function(joinData) {
+  var joinToggle = function(joinData) {
     return $http({
       method: 'POST',
-      url: 'api/events/eventJoin',
+      url: 'api/events/joinToggle',
       data: joinData
     }).then(function(resp) {
       console.log(resp);
@@ -42,7 +42,7 @@ angular.module('studyMate')
 
   return {
     getEvents: getEvents,
-    eventJoin: eventJoin,
+    joinToggle: joinToggle,
     getGuestList: getGuestList
   };
 });

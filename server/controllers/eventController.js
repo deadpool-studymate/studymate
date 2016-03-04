@@ -53,7 +53,7 @@ module.exports = {
       });
   },
   
-  eventJoin: function(req, res) {
+  joinToggle: function(req, res) {
     var token = req.body.token;
     var eventid = req.body.event.id;
     var eventJoinUser = jwt.decode(token, 'deadpoolsecret').username;
