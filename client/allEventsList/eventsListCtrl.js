@@ -28,7 +28,6 @@ angular.module('studyMate')
   };
 
   $scope.joinToggle = function(event) {
-    $scope.toggleButton = !$scope.toggleButton;
     var token = $window.localStorage.getItem('com.studymate');
 
     var eventJoinData = {
