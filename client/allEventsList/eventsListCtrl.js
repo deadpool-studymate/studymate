@@ -1,9 +1,9 @@
 angular.module('studyMate')
 
-
 .controller('eventsListCtrl', function($scope, $window, $state, eventsListFact, logFact) {
   $scope.data = [];
   $scope.allGuestLists = {};
+  $scope.currentUser = '';
 
   $scope.signout = function() {
     logFact.signout();
@@ -19,8 +19,7 @@ angular.module('studyMate')
     eventsListFact.getEvents()
       .then(function(data) {
         data.forEach(function(value) {
-          // moment.tz.add('America/Los_Angeles|PST PDT|80 70|0101|1Lzm0 1zb0 Op0');
-          value.formatted = moment(value.datetime, moment.ISO_8601).format('MMM D, YYYY, h:mm A');
+          value.formatted = moment(value.datetime, moment.ISO_8601).format('MMM D, h:mm A');
         });
         $scope.data = data;
       }).catch(function(err) {
@@ -28,8 +27,7 @@ angular.module('studyMate')
       });
   };
 
-  $scope.eventJoin = function(event) {
-
+  $scope.joinToggle = function(event) {
     var token = $window.localStorage.getItem('com.studymate');
 
     var eventJoinData = {
@@ -37,7 +35,7 @@ angular.module('studyMate')
       event: event
     };
 
-    eventsListFact.eventJoin(eventJoinData)
+    eventsListFact.joinToggle(eventJoinData)
       .then(function(response) {
         if (response.isValid) {
           $scope.getGuestList(event);
@@ -49,13 +47,28 @@ angular.module('studyMate')
 
   $scope.getGuestList = function(event) {
     var list = [];
-    eventsListFact.getGuestList(event.id)
+    var token = $window.localStorage.getItem('com.studymate');
+
+    eventsListFact.getGuestList(event.id, token)
       .then(function(data) {
-        data.forEach(function(item) {
+        $scope.currentUser = data.currentUser;
+        data.list.forEach(function(item) {
           list.push(item.username);
         });
         $scope.allGuestLists[event.id] = list;
       })
+  }
+
+  $scope.isJoined = function(user, event) {
+    if ($scope.allGuestLists[event.id]) {
+      if ($scope.allGuestLists[event.id].indexOf($scope.currentUser) !== -1) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 
   $scope.displayEvent();
