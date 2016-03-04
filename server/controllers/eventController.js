@@ -66,9 +66,15 @@ module.exports = {
           // insert into userevent table the userid and eventid
           new Userevent({user_id: userid, event_id: eventid}).fetch()
             .then(function(found) {
-              // cannot join the same event twice
-              if(found) {
-                res.send(validObj);
+              if (found) {
+                // will unjoin if user is found
+                knex.table('usereventjoins')
+                  .where({user_id: userid, event_id: eventid})
+                  .del()
+                  .then(function(model) {
+                    validObj.isValid = true;
+                    res.send(validObj);
+                  });
               } else {
                 var newUserEvent = new Userevent({user_id: userid, event_id: eventid});
                 newUserEvent.save()

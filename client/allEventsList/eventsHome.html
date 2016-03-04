@@ -38,19 +38,19 @@
       <h2>Choose a study event!</h2>
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="event in data | filter: upcomingEvents | orderBy:'datetime'">
-          <span class="col-sm-2 text-left pull-left"><strong>Topic:</strong></span>
+          <span class="col-sm-2 text-left pull-left item-label"><strong>Topic:</strong></span>
           <span class="col-sm-4">{{event.topic}}</span>
           <br>
-          <span class="col-sm-2 text-left pull-left"><strong>Place:</strong></span>
+          <button class="btn btn-success pull-right btn-sm" ng-click="eventJoin(event)">Join</button>
+          <span class="col-sm-2 text-left pull-left item-label"><strong>Place:</strong></span>
           <span class="col-sm-4">{{event.place}}</span>
-          <button class="btn btn-success pull-right" ng-click="eventJoin(event)">Join</button>
           <br>
-          <span class="col-sm-2 text-left pull-left"><strong>Date:</strong></span>
+          <span class="col-sm-2 text-left pull-left item-label"><strong>Date:</strong></span>
           <span class="col-sm-4">{{event.formatted}}</span>
           <br>
           <div ng-init="getGuestList(event)"></div>
-          <span class="col-sm-2 text-left pull-left"><strong>Attendees:</strong></span>
-          <span class="col-sm-1 guestList" ng-repeat="guest in allGuestLists[event.id]"> {{guest}} </span>
+          <span class="col-sm-2 text-left pull-left item-label"><strong>Attendees:</strong></span>
+          <span class="col-sm-1 col-md-2 guestList" ng-repeat="guest in allGuestLists[event.id]"> {{guest}} </span>
           <br>
         </li>
       </ul>
