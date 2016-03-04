@@ -42,7 +42,7 @@
           <span class="col-sm-4">{{event.topic}}</span>
           <br>
           <button class="btn btn-success pull-right btn-sm" ng-click="joinToggle(event)" ng-show="!isJoined(currentUser, event)">Join</button>
-          <button class="btn btn-success pull-right btn-sm" ng-click="joinToggle(event)" ng-show="isJoined(currentUser, event)">Leave</button>
+          <button class="btn btn-danger pull-right btn-sm" ng-click="joinToggle(event)" ng-show="isJoined(currentUser, event)">Leave</button>
           <span class="col-xs-3 col-sm-2 text-left pull-left item-label"><strong>Place:</strong></span>
           <span class="col-sm-4">{{event.place}}</span>
           <br>
