@@ -94,6 +94,9 @@ module.exports = {
   getGuestList: function(req, res) {
     // GET request that sends the eventid, and returns an object with the attending users
     var eventid = req.body.eventid;
+    var token = req.body.token;
+    var currentUser = jwt.decode(token, 'deadpoolsecret').username;
+    var data = {currentUser: currentUser};
 
     // SQL query to get all users from eventid
     knex('usereventjoins').where('event_id', eventid)
@@ -102,11 +105,10 @@ module.exports = {
         collection.forEach(function(user) {
           guestList.push(user.user_id);
         });
-
       knex.select('username').from('users').whereIn('id', guestList)
         .then(function(list) {
-          console.log(list);
-          res.send(list);
+          data.list = list;
+          res.send(data);
         });
     });
   }

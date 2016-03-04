@@ -24,8 +24,11 @@ angular.module('studyMate')
     });
   };
 
-  var getGuestList = function(eventid) {
-    var data = {eventid: eventid};
+  var getGuestList = function(eventid, token) {
+    var data = {
+      eventid: eventid,
+      token: token
+    };
     return $http({
       method: 'POST',
       url: 'api/events/getGuestList',
