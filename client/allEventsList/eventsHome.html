@@ -12,49 +12,48 @@
           Post an Event!
         </div>
         <div class="panel-body">
-          <form class="createEvent form-horizontal" ng-submit="sendEvent()">
-
+          <form class="createEvent form-horizontal" name="myForm" ng-submit="sendEvent()">
             <span class="glyphicon glyphicon-text-background"></span>
-            <input class="form-control" type="text" ng-model="event.topic" placeholder="Topic" required autofocus></input><br>
+            <input class="form-control" type="text" ng-model="event.topic" required ng-maxlength=15 placeholder="Topic" required></input>
+            <br>
             <span class="glyphicon glyphicon-map-marker"></span>
-            <input class="form-control" type="text" ng-model="event.place" placeholder="Place" required></input><br>
+            <input class="form-control" type="text" ng-model="event.place" placeholder="Place" required></input>
+            <br>
             <span class="glyphicon glyphicon-calendar"></span>
-            <input class="form-control dropdown" type="date" ng-model="event.date" required min="{{currentDate | date: 'yyyy-MM-dd'}}"></input><br>
+            <input class="form-control dropdown" type="date" ng-model="event.date" required min="{{currentDate | date: 'yyyy-MM-dd'}}"></input>
+            <br>
             <span class="glyphicon glyphicon-time"></span>
-            <input class="form-control" type="time" ng-model="event.time" required><br>
-
-            <button class="btn btn-primary">Add</button>
+            <input class="form-control" type="time" ng-model="event.time" required>
+            <br>
+            <button class="btn btn-primary" ng-disabled="myForm.$invalid">Add</button>
           </form>
         </div>
       </div>
     </div>
   </div>
 
-<div class="clearfix visible-sm"></div>
-
-  <!-- <div class="row-fluid"> -->
-    <div id="eventsList" class="col-md-7 col-sm-12 col-xs-12" centered>
-      <div ng-controller="eventsListCtrl">
-        <h2>Choose a study event!</h2>
-        <ul class="list-group">
-          <li class="list-group-item" ng-repeat="event in data | filter: upcomingEvents | orderBy:'datetime'">
-            <span class="col-sm-2 text-left pull-left"><strong>Topic:</strong></span>
-            <span class="col-sm-4">{{event.topic}}</span>
-            <br>
-            <span class="col-sm-2 text-left pull-left"><strong>Place:</strong></span>
-            <span class="col-sm-4">{{event.place}}</span>
-            <button class="btn btn-success pull-right" ng-click="eventJoin(event)">Join</button>
-            <br>
-            <span class="col-sm-2 text-left pull-left"><strong>Date:</strong></span>
-            <span class="col-sm-4">{{event.formatted}}</span>
-            <br>
-            <div ng-init="getGuestList(event)"></div>
-            <span class="col-sm-2 text-left pull-left"><strong>Attendees:</strong></span>
-            <span class="col-sm-1 guestList" ng-repeat="guest in allGuestLists[event.id]"> {{guest}} </span>
-            <br>
-          </li>
-        </ul>
-      </div>
+  <div class="clearfix visible-sm"></div>
+  <div id="eventsList" class="col-md-7 col-sm-12 col-xs-12" centered>
+    <div ng-controller="eventsListCtrl">
+      <h2>Choose a study event!</h2>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="event in data | filter: upcomingEvents | orderBy:'datetime'">
+          <span class="col-xs-3 col-sm-2 text-left pull-left item-label"><strong>Topic:</strong></span>
+          <span class="col-sm-4">{{event.topic}}</span>
+          <br>
+          <button class="btn btn-success pull-right btn-sm" ng-click="joinToggle(event)" ng-show="!isJoined(currentUser, event)">Join</button>
+          <button class="btn btn-danger pull-right btn-sm" ng-click="joinToggle(event)" ng-show="isJoined(currentUser, event)">Leave</button>
+          <span class="col-xs-3 col-sm-2 text-left pull-left item-label"><strong>Place:</strong></span>
+          <span class="col-sm-4">{{event.place}}</span>
+          <br>
+          <span class="col-xs-3 col-sm-2 text-left pull-left item-label"><strong>Date:</strong></span>
+          <span class="col-sm-4">{{event.formatted}}</span>
+          <br>
+          <span class="col-xs-3 col-sm-2 text-left pull-left item-label" ng-init="getGuestList(event)"><strong>Attendees:</strong></span>
+          <span class="col-sm-1 col-md-3 col-lg-2 guestList" ng-repeat="guest in allGuestLists[event.id]"> {{guest}} </span>
+          <br>
+        </li>
+      </ul>
     </div>
-  <!-- </div> -->
+  </div>
 </div>
